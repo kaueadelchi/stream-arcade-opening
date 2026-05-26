@@ -1,0 +1,28 @@
+.sf-row {
+  display: flex;
+  align-items: center;
+  padding: 0 15px;
+  height: 65px;
+  width: 90%;
+  position: absolute;
+  left: 5%;
+  /* Estilo Alpha 3: gradiente metálico azul */
+  background: linear-gradient(180deg, #3a6dbd 0%, #1a3a7c 50%, #001a4d 100%);
+  border: 3px solid #fff;
+  border-right: 3px solid #000; /* Simula a sombra lateral */
+  border-bottom: 3px solid #000;
+  color: #fff;
+  font-family: "Impact", sans-serif;
+  font-style: italic;
+  font-size: 2.2rem;
+  text-shadow: 2px 2px 0 #000;
+  box-shadow: 5px 5px 0px rgba(0,0,0,0.5);
+}
+
+.sf-row-winner {
+  /* Dourado do Alpha 3 */
+  background: linear-gradient(180deg, #f7d93d 0%, #d4a017 50%, #8b5a00 100%);
+  color: #331100;
+  text-shadow: 1px 1px 0px rgba(255,255,255,0.5);
+  border-color: #fff;
+}
