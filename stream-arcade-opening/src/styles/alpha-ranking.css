@@ -1,28 +1,357 @@
-.sf-row {
-  display: flex;
-  align-items: center;
-  padding: 0 15px;
-  height: 65px;
-  width: 90%;
-  position: absolute;
-  left: 5%;
-  /* Estilo Alpha 3: gradiente metálico azul */
-  background: linear-gradient(180deg, #3a6dbd 0%, #1a3a7c 50%, #001a4d 100%);
-  border: 3px solid #fff;
-  border-right: 3px solid #000; /* Simula a sombra lateral */
-  border-bottom: 3px solid #000;
-  color: #fff;
-  font-family: "Impact", sans-serif;
-  font-style: italic;
-  font-size: 2.2rem;
-  text-shadow: 2px 2px 0 #000;
-  box-shadow: 5px 5px 0px rgba(0,0,0,0.5);
+@font-face {
+    font-family: 'SFAlpha3Custom';
+    src: url('/fonts/street-fighter-alpha-3-xl.ttf') format('truetype');
 }
 
-.sf-row-winner {
-  /* Dourado do Alpha 3 */
-  background: linear-gradient(180deg, #f7d93d 0%, #d4a017 50%, #8b5a00 100%);
-  color: #331100;
-  text-shadow: 1px 1px 0px rgba(255,255,255,0.5);
-  border-color: #fff;
+.alpha3-font {
+    font-family: 'SFAlpha3Custom', sans-serif;
+    user-select: none;
+}
+
+/* FUNDO */
+.alpha3-scene {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+
+    background: #000;
+
+    background-image:
+        radial-gradient(circle, #1d2d8f 0%, #050510 100%);
+}
+
+/* TEXTO */
+.alpha3-text {
+    font-size: 2.3rem;
+    letter-spacing: -1px;
+    display: inline-block;
+
+    background: linear-gradient(
+        to bottom,
+        #d9f7ff 0%,
+        #72d8ff 35%,
+        #3ea6ff 65%,
+        #001a7a 100%
+    );
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    filter:
+        drop-shadow(1px 0px 0px #000)
+        drop-shadow(-1px 0px 0px #000)
+        drop-shadow(0px 1px 0px #000)
+        drop-shadow(0px -1px 0px #000)
+        drop-shadow(4px 4px 0px #000044);
+}
+
+.alpha3-rank {
+    font-size: 1.4rem;
+    width: 110px;
+    min-width: 110px;
+
+    background: linear-gradient(
+        to bottom,
+        #ffffff 0%,
+        #72d8ff 35%,
+        #3ea6ff 70%,
+        #001a7a 100%
+    );
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    filter:
+        drop-shadow(1px 0px 0px #000)
+        drop-shadow(-1px 0px 0px #000)
+        drop-shadow(0px 1px 0px #000)
+        drop-shadow(0px -1px 0px #000)
+        drop-shadow(3px 3px 0px #000044);
+}
+
+/* ROW */
+.alpha3-row {
+    background: linear-gradient(
+        90deg,
+        #001a7a 0%,
+        #004cff 45%,
+        #3ea6ff 72%,
+        #72d8ff 88%,
+        #d9f7ff 100%
+    );
+
+    border-radius: 28px 4px 4px 28px;
+    border: 2px solid #000;
+
+    box-shadow:
+        inset 0px 5px 4px rgba(255,255,255,0.6),
+        inset 0px -5px 5px rgba(0,0,0,0.7),
+        4px 6px 0px rgba(0,0,0,0.4);
+}
+
+@font-face {
+    font-family: "SFAlpha3Custom";
+    src: url("/fonts/street-fighter-alpha-3-xl.ttf")
+        format("truetype");
+}
+
+.alpha3-font {
+    font-family: "SFAlpha3Custom", Impact, sans-serif;
+    user-select: none;
+}
+
+/* =========================
+   ROW
+========================= */
+
+.alpha3-row {
+    background: linear-gradient(
+        90deg,
+        #05005e 0%,
+        #1327c9 35%,
+        #2d7dff 68%,
+        #8fd3ff 88%,
+        #dff8ff 100%
+    );
+
+    border-radius: 28px 4px 4px 28px;
+
+    border: 2px solid #000;
+
+    box-shadow:
+        inset 0px 5px 4px rgba(255,255,255,0.65),
+        inset 0px -5px 5px rgba(0,0,0,0.7),
+        4px 6px 0px rgba(0,0,0,0.45);
+
+    padding-left: 24px;
+
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+/* =========================
+   TEXT
+========================= */
+
+.alpha3-rank {
+    font-size: 1.4rem;
+    width: 110px;
+    min-width: 110px;
+
+    display: flex;
+    justify-content: flex-start;
+
+    padding-left: 5px;
+    margin-right: 10px;
+
+    background: linear-gradient(
+        to bottom,
+        #ffffff 0%,
+        #9fe8ff 20%,
+        #4eb7ff 55%,
+        #001ca8 100%
+    );
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    filter:
+        drop-shadow(1px 0px 0px #000)
+        drop-shadow(-1px 0px 0px #000)
+        drop-shadow(0px 1px 0px #000)
+        drop-shadow(0px -1px 0px #000)
+        drop-shadow(4px 4px 0px #000044);
+}
+
+.alpha3-text {
+    font-size: 2.3rem;
+    letter-spacing: -1px;
+
+    background: linear-gradient(
+        to bottom,
+        #ffffff 0%,
+        #8fdcff 30%,
+        #3ea6ff 65%,
+        #001a7a 100%
+    );
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    filter:
+        drop-shadow(1px 0px 0px #000)
+        drop-shadow(-1px 0px 0px #000)
+        drop-shadow(0px 1px 0px #000)
+        drop-shadow(0px -1px 0px #000)
+        drop-shadow(4px 4px 0px #000033);
+}
+
+.alpha3-player-name {
+    flex-grow: 1;
+    text-align: left;
+}
+
+.alpha3-player-score {
+    margin-right: 35px;
+    text-align: right;
+}
+
+/* =========================
+   AVATAR
+========================= */
+
+.alpha3-avatar-frame {
+    position: relative;
+
+    width: 160px;
+    height: 64px;
+
+    margin-right: -2px;
+    margin-top: -4px;
+
+    background: #000;
+
+    border: 3px solid #ffffff;
+
+    box-shadow:
+        3px 4px 0px #000000,
+        0 0 12px rgba(100,180,255,0.45);
+
+    overflow: hidden;
+}
+
+.alpha3-avatar-image {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    image-rendering: pixelated;
+}
+
+.alpha3-avatar-name {
+    position: absolute;
+    bottom: 2px;
+    left: 6px;
+
+    z-index: 60;
+}
+
+.alpha3-subname {
+    font-family: "SFAlpha3Custom", sans-serif;
+
+    font-size: 0.9rem;
+
+    background: linear-gradient(
+        to bottom,
+        #ffffff 0%,
+        #9fe8ff 25%,
+        #5fc8ff 55%,
+        #1d5dff 80%,
+        #001ca8 100%
+    );
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    filter:
+        drop-shadow(1px 1px 0px #000)
+        drop-shadow(0px 0px 4px #4fc3ff)
+        drop-shadow(2px 2px 0px #001144);
+}
+
+/* =========================
+   SIDEBAR
+========================= */
+
+.alpha3-sidebar {
+    position: absolute;
+
+    top: 0;
+    bottom: 0;
+
+    width: 180px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    gap: 4px;
+
+    z-index: 20;
+
+    box-shadow: inset 0px 0px 30px rgba(0,0,0,0.85);
+}
+
+.alpha3-sidebar-left {
+    left: 0;
+
+    background: linear-gradient(
+        90deg,
+        #060038 0%,
+        #243cff 45%,
+        #7ebdff 100%
+    );
+
+    border-right: 4px solid #000;
+}
+
+.alpha3-sidebar-right {
+    right: 0;
+
+    background: linear-gradient(
+        90deg,
+        #060038 0%,
+        #243cff 45%,
+        #7ebdff 100%
+    );
+
+    border-left: 4px solid #000;
+}
+
+.alpha3-sidebar-char {
+    font-family: "SFAlpha3Custom", sans-serif;
+
+    color: #000;
+
+    font-size: 9.5rem;
+
+    line-height: 0.9;
+
+    filter:
+        drop-shadow(6px 6px 0px #7ecbff)
+        drop-shadow(0px 0px 10px #3ea6ff);
+}
+
+/* =========================
+   CRT
+========================= */
+
+.alpha3-crt-overlay {
+    position: absolute;
+    inset: 0;
+
+    pointer-events: none;
+
+    z-index: 9999;
+
+    background: repeating-linear-gradient(
+        rgba(0,0,0,0.22) 0px,
+        rgba(0,0,0,0.22) 2px,
+        transparent 2px,
+        transparent 4px
+    );
+
+    box-shadow:
+        inset 0 0 120px rgba(0,0,0,0.75);
+
+    animation: alpha3Crt 0.12s infinite;
+}
+
+@keyframes alpha3Crt {
+    0% { opacity: 0.98; }
+    50% { opacity: 1; }
+    100% { opacity: 0.99; }
 }
