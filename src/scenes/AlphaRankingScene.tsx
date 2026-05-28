@@ -1,6 +1,36 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import "../styles/alpha-ranking.css";
+import mateus from "../assets/mateus.png";
+import mateusSplash from "../assets/mateus-splash.png";
+import kesti from "../assets/kesti.png";
+import kestiSplash from "../assets/chunli-classic.gif";
+import mayoness from "../assets/mayoness.png";
+import mayonessSplash from "../assets/chunli-classic.gif";
+import shyanjii from "../assets/shyanjii.png";
+import shyanjiiSplash from "../assets/chunli-classic.gif";
+import nesquiknn from "../assets/nesquiknn.png";
+import nesquiknnSplash from "../assets/chunli-classic.gif";
+import nevs from "../assets/nevs.png";
+import nevsSplash from "../assets/chunli-classic.gif";
+import im4rcuss from "../assets/im4rcuss.png";
+import im4rcussSplash from "../assets/chunli-classic.gif";
+import matarainha from "../assets/matarainha.png";
+import matarainhaSplash from "../assets/chunli-classic.gif";
+import gorod from "../assets/gorod_.png";
+import gorodSplash from "../assets/chunli-classic.gif";
+import zefferos from "../assets/zefferos.png";
+import zefferosSplash from "../assets/chunli-classic.gif";
+import lucluc16 from "../assets/lucluc16.png";
+import lucluc16Splash from "../assets/chunli-classic.gif";
+import shizuhe from "../assets/shizuhe.png";
+import shizuheSplash from "../assets/chunli-classic.gif";
+import guiilhy from "../assets/guiilhy.png";
+import guiilhySplash from "../assets/chunli-classic.gif";
+import jaocavera from "../assets/jaocavera.png";
+import jaocaveraSplash from "../assets/chunli-classic.gif";
+import kamo0_o from "../assets/kamo0_o.png";
+import kamo0_oSplash from "../assets/chunli-classic.gif";
 
 type Player = {
     rank: string;
@@ -10,93 +40,81 @@ type Player = {
     splash: string;
 };
 
-const PLAYER_ASSETS: Record<
-    string,
-    { avatar: string; splash: string }
-> = {
+const getPublicMedia = (path: string) => {
+    const baseUrl = import.meta.env.BASE_URL.endsWith('/') 
+        ? import.meta.env.BASE_URL 
+        : `${import.meta.env.BASE_URL}/`;
+    return `${baseUrl}${path}`;
+};
+
+const PLAYER_ASSETS: Record<string, { avatar: string; splash: string }> = {
     yourlife: {
-        avatar: "src/assets/mateus.png",
-        splash: "src/assets/mateus-splash.png",
+        avatar: mateus,
+        splash: mateusSplash,
     },
-
     kesti7: {
-        avatar: "src/assets/kesti.png",
-        splash: "src/assets/kesti-splash.png",
+        avatar: kesti,
+        splash: kestiSplash,
     },
-
     mayoness: {
-        avatar: "src/assets/mayoness.png",
-        splash: "src/assets/mayoness-splash.png",
+        avatar: mayoness,
+        splash: mayonessSplash,
     },
-
     shyanjii: {
-        avatar: "src/assets/shyanjii.png",
-        splash: "src/assets/shyanjii-splash.png",
+        avatar: shyanjii,
+        splash: shyanjiiSplash,
     },
-
     nesquiknn: {
-        avatar: "src/assets/nesquiknn.png",
-        splash: "src/assets/nesquiknn-splash.png",
+        avatar: nesquiknn,
+        splash: nesquiknnSplash,
     },
-
     nevs: {
-        avatar: "src/assets/nevs.png",
-        splash: "src/assets/nevs-splash.png",
+        avatar: nevs,
+        splash: nevsSplash,
     },
-
     im4rcuss: {
-        avatar: "src/assets/im4rcuss.png",
-        splash: "src/assets/im4rcuss-splash.png",
+        avatar: im4rcuss,
+        splash: im4rcussSplash,
     },
-
     matarainha: {
-        avatar: "src/assets/matarainha.png",
-        splash: "src/assets/matarainha-splash.png",
+        avatar: matarainha,
+        splash: matarainhaSplash,
     },
-
     gorod_: {
-        avatar: "src/assets/gorod_.png",
-        splash: "src/assets/gorod_-splash.png",
+        avatar: gorod,
+        splash: gorodSplash,
     },
-
     zefferos: {
-        avatar: "src/assets/zefferos.png",
-        splash: "src/assets/zefferos-splash.png",
+        avatar: zefferos,
+        splash: zefferosSplash,
     },
-
     lucluc16: {
-        avatar: "src/assets/lucluc16.png",
-        splash: "src/assets/lucluc16-splash.png",
+        avatar: lucluc16,
+        splash: lucluc16Splash,
     },
-
     shizuhe: {
-        avatar: "src/assets/shizuhe.png",
-        splash: "src/assets/shizuhe-splash.png",
+        avatar: shizuhe,
+        splash: shizuheSplash,
     },
-
     guiilhy: {
-        avatar: "src/assets/guiilhy.png",
-        splash: "src/assets/guiilhy-splash.png",
+        avatar: guiilhy,
+        splash: guiilhySplash,
     },
-
     jaocavera: {
-        avatar: "src/assets/jaocavera.png",
-        splash: "src/assets/jaocavera-splash.png",
+        avatar: jaocavera,
+        splash: jaocaveraSplash,
     },
-
     kamo0_o: {
-        avatar: "src/assets/kamo0_o.png",
-        splash: "src/assets/kamo0_o-splash.png",
+        avatar: kamo0_o,
+        splash: kamo0_oSplash,
     },
-
     inz4ki: {
-        avatar: "src/assets/kamo0_o.png",
-        splash: "src/assets/kamo0_o-splash.png",
+        avatar: kamo0_o,
+        splash: kamo0_oSplash,
     },
-
     udanzo_: {
-        avatar: "src/assets/shizuhe.png",
-        splash: "src/assets/shizuhe-splash.png",
+        avatar: shizuhe,
+        splash: shizuheSplash,
     },
 };
 
@@ -577,9 +595,7 @@ export default function Alpha3RankingScene() {
 
             <div className="alpha3-crt-overlay" />
 
-            <audio ref={audioRef}>
-                <source src="/audio/ranking-theme.mp3" type="audio/mpeg" />
-            </audio>
+            <audio ref={audioRef} src={getPublicMedia("audio/ranking-theme.mp3")} />
         </div>
     );
 }

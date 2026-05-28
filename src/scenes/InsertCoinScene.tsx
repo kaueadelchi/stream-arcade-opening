@@ -1,4 +1,6 @@
 import { motion } from "framer-motion";
+import logo from "../assets/logo.png";
+import background from "../assets/background-pasta.png"
 
 export default function InsertCoinScene() {
   return (
@@ -7,7 +9,7 @@ export default function InsertCoinScene() {
         width: "100vw",
         height: "100vh",
         // Atualizado: Adicionada a imagem de fundo com propriedades de posicionamento e cobertura
-        backgroundImage: "url('src/assets/background-pasta.png')", 
+        backgroundImage: `url('${background}')`, 
         backgroundPosition: "center",
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
@@ -86,7 +88,7 @@ export default function InsertCoinScene() {
 
       {/* LOGO */}
       <motion.img
-        src="src/assets/logo.png"
+        src={logo}
         alt="Logo"
         initial={{
           opacity: 0,

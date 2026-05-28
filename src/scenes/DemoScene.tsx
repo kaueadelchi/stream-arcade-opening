@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-const LOCAL_VIDEOS = [
+const VIDEO_FILES = [
     "/video/index (1).mp4",
     "/video/index (2).mp4",
     "/video/index (3).mp4",
@@ -13,11 +13,20 @@ const LOCAL_VIDEOS = [
 export default function ArcadeDemoScene() {
     const videoRef = useRef<HTMLVideoElement | null>(null);
 
-    const initialVideo = useMemo(() => {
-        return LOCAL_VIDEOS[
-            Math.floor(Math.random() * LOCAL_VIDEOS.length)
-        ];
+    const localVideosWithBase = useMemo(() => {
+        const baseUrl = import.meta.env.BASE_URL.endsWith('/')
+            ? import.meta.env.BASE_URL
+            : `${import.meta.env.BASE_URL}/`;
+
+        return VIDEO_FILES.map(videoPath => `${baseUrl}${videoPath}`);
     }, []);
+
+    // Escolhe o vídeo inicial aleatório baseado na lista com caminhos corrigidos
+    const initialVideo = useMemo(() => {
+        return localVideosWithBase[
+            Math.floor(Math.random() * localVideosWithBase.length)
+        ];
+    }, [localVideosWithBase]);
 
     const [currentVideo, setCurrentVideo] = useState(initialVideo);
 
@@ -69,11 +78,11 @@ export default function ArcadeDemoScene() {
 
         while (
             nextVideo === currentVideo &&
-            LOCAL_VIDEOS.length > 1
+            VIDEO_FILES.length > 1
         ) {
             nextVideo =
-                LOCAL_VIDEOS[
-                Math.floor(Math.random() * LOCAL_VIDEOS.length)
+                VIDEO_FILES[
+                Math.floor(Math.random() * VIDEO_FILES.length)
                 ];
         }
 
