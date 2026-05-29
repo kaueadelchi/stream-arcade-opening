@@ -15,8 +15,6 @@ import nevs from "../assets/nevs.png";
 import nevsSplash from "../assets/chunli-classic.gif";
 import im4rcuss from "../assets/im4rcuss.png";
 import im4rcussSplash from "../assets/chunli-classic.gif";
-import matarainha from "../assets/matarainha.png";
-import matarainhaSplash from "../assets/chunli-classic.gif";
 import gorod from "../assets/gorod_.png";
 import gorodSplash from "../assets/chunli-classic.gif";
 import zefferos from "../assets/zefferos.png";
@@ -77,8 +75,8 @@ const PLAYER_ASSETS: Record<string, { avatar: string; splash: string }> = {
         splash: im4rcussSplash,
     },
     matarainha: {
-        avatar: matarainha,
-        splash: matarainhaSplash,
+        avatar: kesti,
+        splash: kestiSplash,
     },
     gorod_: {
         avatar: gorod,
