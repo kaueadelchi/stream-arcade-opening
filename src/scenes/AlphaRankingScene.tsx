@@ -180,7 +180,7 @@ export default function Alpha3RankingScene() {
                 const data = await res.json();
                 const list = Array.isArray(data?.users) ? data.users : [];
 
-                const blockedUsers = ["kiuller_", "sery_bot"];
+                const blockedUsers = ["kiuller_", "sery_bot", "badguykauezao", "goodguyadel"];
 
                 const filteredList = list.filter(
                     (u: any) =>
