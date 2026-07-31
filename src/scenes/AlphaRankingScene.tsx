@@ -31,6 +31,8 @@ import kamo0_o from "../assets/kamo0_o.png";
 import kamo0_oSplash from "../assets/chunli-classic.gif";
 import shmashiro from "../assets/shmashiro.png";
 import shmashiroSplash from "../assets/chunli-classic.gif";
+import hytsury from "../assets/hytsury.png";
+import hytsurySplash from "../assets/chunli-classic.gif";
 
 type Player = {
     rank: string;
@@ -119,6 +121,10 @@ const PLAYER_ASSETS: Record<string, { avatar: string; splash: string }> = {
     shmashiro: {
         avatar: shmashiro,
         splash: shmashiroSplash,
+    },
+    hytsury: {
+        avatar: hytsury,
+        splash: hytsurySplash,
     },
 };
 
