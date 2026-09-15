@@ -33,6 +33,11 @@ import shmashiro from "../assets/shmashiro.png";
 import shmashiroSplash from "../assets/chunli-classic.gif";
 import hytsury from "../assets/hytsury.png";
 import hytsurySplash from "../assets/chunli-classic.gif";
+import kumarr__ from "../assets/kumarr.png";
+import kumarr__Splash from "../assets/chunli-classic.gif";
+import hisagi_z from "../assets/hisagi.png";
+import hisagi_zSplash from "../assets/chunli-classic.gif";
+
 
 type Player = {
     rank: string;
@@ -125,6 +130,14 @@ const PLAYER_ASSETS: Record<string, { avatar: string; splash: string }> = {
     hytsury: {
         avatar: hytsury,
         splash: hytsurySplash,
+    },
+    kumarr__: {
+        avatar: kumarr__,
+        splash: kumarr__Splash,
+    },
+    hisagi_z__: {
+        avatar: hisagi_z,
+        splash: hisagi_zSplash,
     },
 };
 
