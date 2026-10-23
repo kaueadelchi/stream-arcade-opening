@@ -48,8 +48,8 @@ type Player = {
 };
 
 const getPublicMedia = (path: string) => {
-    const baseUrl = import.meta.env.BASE_URL.endsWith('/') 
-        ? import.meta.env.BASE_URL 
+    const baseUrl = import.meta.env.BASE_URL.endsWith('/')
+        ? import.meta.env.BASE_URL
         : `${import.meta.env.BASE_URL}/`;
     return `${baseUrl}${path}`;
 };
@@ -267,6 +267,60 @@ export default function Alpha3RankingScene() {
 
         return () => clearTimeout(transitionTimer);
     }, [players, visiblePlayers]);
+
+    useEffect(() => {
+        const audio = audioRef.current;
+
+        if (!audio) return;
+
+        audio.volume = 0.4;
+        audio.loop = true;
+
+        const startAudio = async () => {
+            try {
+                await audio.play();
+                console.log("music started");
+            } catch (error) {
+                console.error("failed to play audio", error);
+            }
+        };
+
+        // Inicia a música após 1 segundo
+        const startTimer = setTimeout(() => {
+            void startAudio();
+        }, 1000);
+
+        // Inicia o fade-out aos 18 segundos
+        const fadeTimer = setTimeout(() => {
+            const initialVolume = audio.volume;
+            const startTime = performance.now();
+            const duration = 2000;
+
+            const fade = (now: number) => {
+                const progress = Math.min(
+                    (now - startTime) / duration,
+                    1
+                );
+
+                audio.volume = initialVolume * (1 - progress);
+
+                if (progress < 1) {
+                    requestAnimationFrame(fade);
+                } else {
+                    audio.pause();
+                    audio.currentTime = 0;
+                    audio.volume = 0.4;
+                }
+            };
+
+            requestAnimationFrame(fade);
+        }, 18000);
+
+        return () => {
+            clearTimeout(startTimer);
+            clearTimeout(fadeTimer);
+        };
+    }, []);
 
     const winnerData = players[0];
 

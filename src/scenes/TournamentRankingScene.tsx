@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import "../styles/tournament.css";
-import comingSoonImage from "../assets/logo-tournament.png";
+import comingSoonImage from "../assets/coming-soon-tournament.png";
 import mateus from "../assets/mateus.png";
 import mateusSplash from "../assets/mateus-splash.png";
 import kesti from "../assets/kesti.png";
@@ -333,6 +333,60 @@ export default function Alpha3RankingScene() {
         return () => clearTimeout(transitionTimer);
     }, [players, visiblePlayers]);
 
+    useEffect(() => {
+        const audio = audioRef.current;
+
+        if (!audio) return;
+
+        audio.volume = 0.4;
+        audio.loop = true;
+
+        const startAudio = async () => {
+            try {
+                await audio.play();
+                console.log("music started");
+            } catch (error) {
+                console.error("failed to play audio", error);
+            }
+        };
+
+        // Inicia a música após 1 segundo
+        const startTimer = setTimeout(() => {
+            void startAudio();
+        }, 1000);
+
+        // Inicia o fade-out aos 18 segundos
+        const fadeTimer = setTimeout(() => {
+            const initialVolume = audio.volume;
+            const startTime = performance.now();
+            const duration = 2000;
+
+            const fade = (now: number) => {
+                const progress = Math.min(
+                    (now - startTime) / duration,
+                    1
+                );
+
+                audio.volume = initialVolume * (1 - progress);
+
+                if (progress < 1) {
+                    requestAnimationFrame(fade);
+                } else {
+                    audio.pause();
+                    audio.currentTime = 0;
+                    audio.volume = 0.4;
+                }
+            };
+
+            requestAnimationFrame(fade);
+        }, 18000);
+
+        return () => {
+            clearTimeout(startTimer);
+            clearTimeout(fadeTimer);
+        };
+    }, []);
+
     const winnerData = players[0];
 
     return (
@@ -581,13 +635,6 @@ export default function Alpha3RankingScene() {
                         className="tournament-coming-soon-image"
                     />
 
-                    <h1 className="tournament-coming-soon-title">
-                        COMING SOON
-                    </h1>
-
-                    <p className="tournament-coming-soon-subtitle">
-                        TOURNAMENT RANKING
-                    </p>
                 </motion.div>
             )}
 
@@ -767,7 +814,7 @@ export default function Alpha3RankingScene() {
 
             <div className="tournament-crt-overlay" />
 
-            <audio ref={audioRef} src={getPublicMedia("audio/ranking-theme.mp3")} />
+            <audio ref={audioRef} src={getPublicMedia("audio/tournament-coming-soon.mp3")} />
         </div>
     );
 }
