@@ -135,7 +135,7 @@ const PLAYER_ASSETS: Record<string, { avatar: string; splash: string }> = {
         avatar: kumarr__,
         splash: kumarr__Splash,
     },
-    hisagi_z__: {
+    hisagi_z: {
         avatar: hisagi_z,
         splash: hisagi_zSplash,
     },
