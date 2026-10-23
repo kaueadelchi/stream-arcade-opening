@@ -3,36 +3,44 @@ import { AnimatePresence, motion } from "framer-motion";
 
 import ArcadeDemoScene from "./scenes/DemoScene";
 import Alpha3RankingScene from "./scenes/AlphaRankingScene";
-import TitleScreenScene from "./scenes/InsertCoinScene"
+import TitleScreenScene from "./scenes/InsertCoinScene";
+import TournamentRankingScene from "./scenes/TournamentRankingScene";
 
-type SceneType = "demo" | "ranking" | "title";
+type SceneType = "demo" | "ranking" | "title" | "title2" | "demo2" | "tournament";
 
 export default function ArcadeController() {
     const [scene, setScene] = useState<SceneType>("title");
+    const [nextRanking, setNextRanking] = useState<"ranking" | "tournament">("ranking");
 
     useEffect(() => {
         let timer: ReturnType<typeof setTimeout>;
 
-        if (scene === "title") {
-            timer = setTimeout(() => {
-                setScene("demo");
-            }, 10000); // 30s demo
-        }
+        switch (scene) {
+            case "title":
+                timer = setTimeout(() => {
+                    setScene("demo");
+                }, 10000);
+                break;
 
-        if (scene === "demo") {
-            timer = setTimeout(() => {
-                setScene("ranking");
-            }, 20000); // 30s demo
-        }
+            case "demo":
+                timer = setTimeout(() => {
+                    setScene(nextRanking);
+                }, 20000);
+                break;
 
-        if (scene === "ranking") {
-            timer = setTimeout(() => {
-                setScene("title");
-            }, 20000); // 45s ranking
+            case "ranking":
+            case "tournament":
+                timer = setTimeout(() => {
+                    setNextRanking(
+                        scene === "ranking" ? "tournament" : "ranking"
+                    );
+                    setScene("title");
+                }, 20000);
+                break;
         }
 
         return () => clearTimeout(timer);
-    }, [scene]);
+    }, [scene, nextRanking]);
 
     return (
         <div
@@ -126,6 +134,35 @@ export default function ArcadeController() {
                         }}
                     >
                         <Alpha3RankingScene />
+                    </motion.div>
+                )}
+
+                {scene === "tournament" && (
+                    <motion.div
+                        key="tournament"
+                        initial={{
+                            opacity: 0,
+                            scale: 0.95,
+                            filter: "blur(12px)",
+                        }}
+                        animate={{
+                            opacity: 1,
+                            scale: 1,
+                            filter: "blur(0px)",
+                        }}
+                        exit={{
+                            opacity: 0,
+                            scale: 1.1,
+                        }}
+                        transition={{
+                            duration: 0.8,
+                        }}
+                        style={{
+                            position: "absolute",
+                            inset: 0,
+                        }}
+                    >
+                        <TournamentRankingScene />
                     </motion.div>
                 )}
 

@@ -33,8 +33,8 @@ import shmashiro from "../assets/shmashiro.png";
 import shmashiroSplash from "../assets/chunli-classic.gif";
 import hytsury from "../assets/hytsury.png";
 import hytsurySplash from "../assets/chunli-classic.gif";
-import kumarr__ from "../assets/kumarr.png";
-import kumarr__Splash from "../assets/chunli-classic.gif";
+import ehyzee from "../assets/kumarr.png";
+import ehyzeeSplash from "../assets/chunli-classic.gif";
 import hisagi_z from "../assets/hisagi.png";
 import hisagi_zSplash from "../assets/chunli-classic.gif";
 
@@ -131,9 +131,9 @@ const PLAYER_ASSETS: Record<string, { avatar: string; splash: string }> = {
         avatar: hytsury,
         splash: hytsurySplash,
     },
-    kumarr__: {
-        avatar: kumarr__,
-        splash: kumarr__Splash,
+    ehyzee: {
+        avatar: ehyzee,
+        splash: ehyzeeSplash,
     },
     hisagi_z: {
         avatar: hisagi_z,

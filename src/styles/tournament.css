@@ -1,0 +1,422 @@
+/* =========================
+   FONTE
+========================= */
+
+@font-face {
+    font-family: "SFAlpha3Custom";
+    src: url("/fonts/street-fighter-alpha-3-xl.ttf") format("truetype");
+}
+
+.tournament-font {
+    font-family: "SFAlpha3Custom", Impact, sans-serif;
+    user-select: none;
+}
+
+/* =========================
+   PALETA DE CORES
+========================= */
+
+/*
+   Laranja principal: #F87816
+   Laranja claro:     #FFAD42
+   Creme:             #FFE0A0
+   Laranja escuro:    #A9320B
+   Vermelho queimado: #6E1D08
+   Fundo escuro:      #160B08
+*/
+
+/* =========================
+   FUNDO
+========================= */
+
+.tournament-scene {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+
+    background: #160B08;
+    background-image: radial-gradient(circle,
+            #6E1D08 0%,
+            #351006 48%,
+            #100604 100%);
+}
+
+/* =========================
+   TEXTO PRINCIPAL
+========================= */
+
+.tournament-text {
+    font-size: 2.3rem;
+    letter-spacing: -1px;
+    display: inline-block;
+
+    background: linear-gradient(to bottom,
+            #FFF8E8 0%,
+            #FFE0A0 18%,
+            #FFAD42 38%,
+            #F87816 65%,
+            #A9320B 84%,
+            #4A1005 100%);
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    filter:
+        drop-shadow(1px 0px 0px #160604) drop-shadow(-1px 0px 0px #160604) drop-shadow(0px 1px 0px #160604) drop-shadow(0px -1px 0px #160604) drop-shadow(4px 4px 0px #3A0C03);
+}
+
+/* =========================
+   POSIÇÃO NO RANKING
+========================= */
+
+.tournament-rank {
+    font-size: 1.4rem;
+    width: 110px;
+    min-width: 110px;
+
+    display: flex;
+    justify-content: flex-start;
+
+    padding-left: 5px;
+    margin-right: 10px;
+
+    background: linear-gradient(to bottom,
+            #FFFFFF 0%,
+            #FFE0A0 20%,
+            #FFAD42 45%,
+            #F87816 68%,
+            #A9320B 85%,
+            #4A1005 100%);
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    filter:
+        drop-shadow(1px 0px 0px #160604) drop-shadow(-1px 0px 0px #160604) drop-shadow(0px 1px 0px #160604) drop-shadow(0px -1px 0px #160604) drop-shadow(4px 4px 0px #3A0C03);
+}
+
+/* =========================
+   BARRAS DOS JOGADORES
+========================= */
+
+.tournament-row {
+    background: linear-gradient(90deg,
+            #521305 0%,
+            #8F2608 24%,
+            #C53A0A 45%,
+            #F87816 66%,
+            #FFAD42 84%,
+            #FFE0A0 100%);
+
+    border-radius: 28px 4px 4px 28px;
+    border: 2px solid #2B0B04;
+
+    box-shadow:
+        inset 0px 5px 4px rgba(255, 224, 160, 0.55),
+        inset 0px -5px 5px rgba(40, 7, 2, 0.75),
+        4px 6px 0px rgba(0, 0, 0, 0.45);
+
+    padding-left: 24px;
+
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+/* =========================
+   NOMES E PONTUAÇÕES
+========================= */
+
+.tournament-player-name {
+    flex-grow: 1;
+    text-align: left;
+}
+
+.tournament-player-score {
+    margin-right: 35px;
+    text-align: right;
+}
+
+/* =========================
+   AVATAR
+========================= */
+
+.tournament-avatar-frame {
+    position: relative;
+
+    width: 160px;
+    height: 64px;
+
+    margin-right: -2px;
+    margin-top: -4px;
+
+    background: #160B08;
+
+    border: 3px solid #FFE0A0;
+
+    box-shadow:
+        3px 4px 0px #260801,
+        0 0 12px rgba(255, 120, 22, 0.65),
+        0 0 24px rgba(201, 58, 10, 0.3);
+
+    overflow: hidden;
+}
+
+.tournament-avatar-image {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    image-rendering: pixelated;
+}
+
+.tournament-avatar-name {
+    position: absolute;
+    bottom: 2px;
+    left: 6px;
+
+    z-index: 60;
+}
+
+/* =========================
+   SUBNOME DO JOGADOR
+========================= */
+
+.tournament-subname {
+    font-family: "SFAlpha3Custom", Impact, sans-serif;
+    font-size: 0.9rem;
+
+    background: linear-gradient(to bottom,
+            #FFFFFF 0%,
+            #FFE0A0 22%,
+            #FFAD42 45%,
+            #F87816 68%,
+            #A9320B 86%,
+            #4A1005 100%);
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    filter:
+        drop-shadow(1px 1px 0px #160604) drop-shadow(0px 0px 4px #FF8C27) drop-shadow(2px 2px 0px #4A1005);
+}
+
+/* =========================
+   SIDEBAR
+========================= */
+
+.tournament-sidebar {
+    position: absolute;
+
+    top: 0;
+    bottom: 0;
+
+    width: 180px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    gap: 4px;
+
+    z-index: 20;
+
+    box-shadow: inset 0px 0px 30px rgba(0, 0, 0, 0.85);
+}
+
+/* LATERAL ESQUERDA */
+
+.tournament-sidebar-left {
+    left: 0;
+
+    background: linear-gradient(90deg,
+            #240801 0%,
+            #70200A 35%,
+            #C53A0A 70%,
+            #FF8C27 100%);
+
+    border-right: 4px solid #2B0B04;
+}
+
+/* LATERAL DIREITA */
+
+.tournament-sidebar-right {
+    right: 0;
+
+    background: linear-gradient(90deg,
+            #FF8C27 0%,
+            #C53A0A 30%,
+            #70200A 65%,
+            #240801 100%);
+
+    border-left: 4px solid #2B0B04;
+}
+
+/* =========================
+   CARACTERES DA SIDEBAR
+========================= */
+
+.tournament-sidebar-char {
+    font-family: "SFAlpha3Custom", Impact, sans-serif;
+
+    color: #FFE0A0;
+
+    font-size: 9.5rem;
+    line-height: 0.9;
+
+    filter:
+        drop-shadow(6px 6px 0px #6E1D08) drop-shadow(0px 0px 10px #FF8C27);
+}
+
+/* =========================
+   EFEITO CRT
+========================= */
+
+.tournament-crt-overlay {
+    position: absolute;
+    inset: 0;
+
+    pointer-events: none;
+    z-index: 9999;
+
+    background: repeating-linear-gradient(rgba(30, 8, 2, 0.22) 0px,
+            rgba(30, 8, 2, 0.22) 2px,
+            transparent 2px,
+            transparent 4px);
+
+    box-shadow:
+        inset 0 0 120px rgba(20, 5, 1, 0.80),
+        inset 0 0 35px rgba(255, 100, 15, 0.08);
+
+    animation: tournamentCrt 0.12s infinite;
+
+}
+
+@keyframes tournamentCrt {
+    0% {
+        opacity: 0.98;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0.99;
+    }
+}
+
+
+
+.tournament-player-score {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.tournament-score-item {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+
+
+.tournament-score-count {
+    font-family: 'SFAlpha3Custom', 'Impact', sans-serif;
+    font-size: 1.8rem;
+    font-weight: bold;
+    line-height: 1;
+
+    /* Gradiente dourado e laranja */
+    background: linear-gradient(to bottom,
+            #FFF4D6 0%,
+            #FFBD59 35%,
+            #F87816 70%,
+            #A9320B 100%);
+
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    /* Contorno escuro */
+    -webkit-text-stroke: 0.6px #160604;
+    paint-order: stroke fill;
+
+    /* Sombra para destacar o número */
+    filter:
+        drop-shadow(1px 1px 0 #000) drop-shadow(2px 2px 2px #451204);
+}
+
+
+
+.tournament-medal {
+    display: block;
+    width: 30px;
+    height: 36px;
+    flex-shrink: 0;
+    filter: drop-shadow(2px 2px 1px rgba(0, 0, 0, 0.8));
+}
+
+
+.tournament-coming-soon {
+    position: absolute;
+    inset: 0;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at center,
+            #6E1D08 0%,
+            #351006 45%,
+            #160604 75%,
+            #080302 100%);
+}
+
+.tournament-coming-soon-image {
+    width: min(65vw, 900px);
+    max-height: 75vh;
+    object-fit: contain;
+    filter: drop-shadow(0 0 25px rgba(248, 120, 22, 0.3));
+}
+
+.tournament-coming-soon-title {
+    margin: 20px 0 0;
+    font-family: 'SFAlpha3Custom', Impact, sans-serif;
+    font-size: clamp(3rem, 6vw, 6rem);
+    line-height: 1;
+    letter-spacing: 4px;
+    text-align: center;
+
+    background: linear-gradient(to bottom,
+            #FFF4D6 0%,
+            #FFBD59 35%,
+            #F87816 70%,
+            #A9320B 100%);
+
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: 1.5px #160604;
+
+    filter:
+        drop-shadow(3px 3px 0 #000) drop-shadow(0 0 12px rgba(248, 120, 22, 0.35));
+}
+
+.tournament-coming-soon-subtitle {
+    margin: 16px 0 0;
+    font-family: 'SFAlpha3Custom', Impact, sans-serif;
+    color: #FFBD59;
+    font-size: clamp(1rem, 2vw, 1.8rem);
+    letter-spacing: 6px;
+    text-align: center;
+    text-shadow: 2px 2px 0 #000;
+}

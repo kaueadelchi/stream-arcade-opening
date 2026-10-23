@@ -10,7 +10,8 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist -f"
+    "deploy": "gh-pages -d dist -f",
+    "generate:ranking": "node scripts/generate-challonge-ranking.mjs"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.3.0",

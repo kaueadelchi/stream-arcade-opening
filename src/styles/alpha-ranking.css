@@ -70,26 +70,6 @@
         drop-shadow(3px 3px 0px #000044);
 }
 
-/* ROW */
-.alpha3-row {
-    background: linear-gradient(
-        90deg,
-        #001a7a 0%,
-        #004cff 45%,
-        #3ea6ff 72%,
-        #72d8ff 88%,
-        #d9f7ff 100%
-    );
-
-    border-radius: 28px 4px 4px 28px;
-    border: 2px solid #000;
-
-    box-shadow:
-        inset 0px 5px 4px rgba(255,255,255,0.6),
-        inset 0px -5px 5px rgba(0,0,0,0.7),
-        4px 6px 0px rgba(0,0,0,0.4);
-}
-
 @font-face {
     font-family: "SFAlpha3Custom";
     src: url("/fonts/street-fighter-alpha-3-xl.ttf")
