@@ -36,7 +36,9 @@ import hytsurySplash from "../assets/chunli-classic.gif";
 import ehyzee from "../assets/kumarr.png";
 import ehyzeeSplash from "../assets/chunli-classic.gif";
 import hisagi_z from "../assets/hisagi.png";
-import hisagi_zSplash from "../assets/chunli-classic.gif";
+import hisagi_zSplash from "../assets/hisagi_z-splash.png";
+import flanderszao from "../assets/flanderszao.png";
+import flanderszaoSplash from "../assets/chunli-classic.gif";
 
 
 type Player = {
@@ -139,6 +141,10 @@ const PLAYER_ASSETS: Record<string, { avatar: string; splash: string }> = {
         avatar: hisagi_z,
         splash: hisagi_zSplash,
     },
+    flanderszao: {
+        avatar: flanderszao,
+        splash: flanderszaoSplash,
+    }
 };
 
 const getOrdinal = (n: number) => {
